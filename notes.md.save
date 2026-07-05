@@ -1,0 +1,158 @@
+# Part 1 – Introduction to Vulnerability Analysis
+
+## Objective
+
+I want to understand what Vulnerability Analysis is and how to do a vulnerability assessment using Nmaps NSE vulnerability scripts.
+
+---
+
+# What is Vulnerability Analysis?
+
+Vulnerability Analysis is the process of finding security weaknesses in systems, applications and services before they can be exploited by someone.
+
+Unlike Network Scanning, which finds hosts and services Vulnerability Analysis checks if those services have known security weaknesses.
+
+The goal of Vulnerability Analysis is to:
+
+- Find vulnerabilities
+
+- Check security risks
+
+- Decide what to fix first
+
+- Make the security better
+
+---
+
+# Vulnerability Analysis Workflow
+
+1. Find the target
+
+2. Identify what services are running
+
+3. Detect what software versions are used
+
+4. Compare them to known vulnerabilities
+
+5. Write down the findings
+
+---
+
+## 1. Update the Nmap Script Database
+
+### Scenario
+
+I need to refresh the NSE script database before I do a vulnerability assessment.
+
+### Command
+
+```bash
+
+sudo nmap --script-updatedb
+
+```
+
+### Description
+
+This command updates the Nmap script database so it knows about newly installed or updated scripts.
+
+### Screenshot
+
+![Alt text](screenshots/nmap-script-updatedb.png)
+
+---
+
+## 2. Run the Vulnerability Script Category
+
+### Scenario
+
+I want to do a vulnerability assessment against the target.
+
+### Command
+
+```bash
+
+sudo nmap --script 192.168.1.10
+
+```
+
+### Description
+
+This command runs all Nmap NSE scripts in the vuln category to find known vulnerabilities that the target has.
+
+Replace the IP address with the target IP address.
+
+### Screenshot
+
+![Alt text](screenshots/nmap-vuln-scan.png)
+
+---
+
+## 3. Save the Vulnerability Report
+
+### Scenario
+
+I want to save the vulnerability assessment results for documentation.
+
+### Command
+
+```bash
+
+sudo nmap --script 192.168.1.10 -oN vulnerability-scan.txt
+
+```
+
+### Description
+
+This command saves the scan results in a text file so I can look at them later and make a report.
+
+### Screenshot
+
+![Alt text](screenshots/vulnerability-report.png)
+
+---
+
+## 4. Review the Saved Report
+
+### Scenario
+
+I want to look at the generated vulnerability report.
+
+### Command
+
+```bash
+
+vulnerability-scan.txt
+
+```
+
+### Description
+
+This command opens the saved report, in a pager so it is easier to navigate and look at.
+
+### Screenshot
+
+![Alt text](screenshots/review-vulnerability-report.png)
+
+---
+
+# Key Concepts Learned
+
+- Vulnerability Analysis
+
+- NSE Vulnerability Scripts
+
+- Vulnerability Identification
+
+- Security Assessment
+
+- Scan Reporting
+
+---
+
+# conclusion
+
+- Vulnerability Analysis
+- NSE Vulnerability Scripts
+- Vulnerability Identification
+- Security Assessment

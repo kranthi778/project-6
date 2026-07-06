@@ -1,4 +1,4 @@
-# vulnerability-analysis-project
+/# vulnerability-analysis-project
 
 # Part 1 – Understanding Vulnerability Analysis and Setting Up Nessus
 
@@ -376,7 +376,7 @@ Nessus Essentials starts checking the target system using the template and plugi
 
 ### Screenshot
 
-![ text](screenshots/launch-scan.png)
+![Alt text](screenshots/launch-scan.png)
 
 ---
 
@@ -418,7 +418,7 @@ When the scan is finished it will say **Completed**. I can look at the results.
 
 ### Screenshot
 
-![ text](screenshots/completed-scan.png)
+![Alt text](screenshots/completed-scan.png)
 
 ---
 
@@ -447,3 +447,154 @@ In this part I learned
 - how to confirm that a scan is finished
 
 - how Nessus Essentials checks for vulnerabilities before making a report, about the target system.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Part 4 – Looking at Vulnerability Findings
+
+## What We Want to Do
+
+We need to learn how to look at the results of a completed Nessus vulnerability scan. We have to understand what the vulnerability severity levels mean. We also need to know how to interpret CVE information and decide which problems to fix first.
+
+---
+
+# Why Look at Scan Results?
+
+Just running a vulnerability scan is not enough.
+
+A security analyst needs to know:
+
+- What vulnerabilities were found
+
+- How bad they are
+
+- Why they are there
+
+- Which systems are affected
+
+- What to fix
+
+Looking at the results properly helps organizations reduce security risks in a better way.
+
+---
+
+## 1. Open the Scan Report
+
+### What We Are Doing
+
+We are going to look at the results of the completed vulnerability assessment.
+
+### Steps
+
+1. Open **My Scans**.
+
+2. Click on the completed scan.
+
+### What Happens
+
+When we open the completed scan we can see all the vulnerabilities that were found and the details of the assessment.
+
+### Screenshot
+
+![Alt text](screenshots/vulnerability-summary.png)
+
+---
+
+## 2. Look at the Vulnerability Summary
+
+### What We Are Doing
+
+We are going to look at the overview of vulnerabilities that Nessus generated.
+
+### What We See
+
+- bad problems
+
+- Bad problems
+
+- Medium problems
+
+- Small problems
+
+- Just information
+
+### What It Means
+
+The summary puts vulnerabilities into groups based on how bad they are. This helps us decide which ones to fix first.
+
+### Screenshot
+
+![Alt text](screenshots/vulnerability-summary.png)
+
+---
+
+## 3. Look at One Vulnerability
+
+### What We Are Doing
+
+We are going to open one vulnerability from the report.
+
+### What We Look At
+
+- The name of the plugin
+
+- The level of risk
+
+- A description
+
+- A solution
+
+- The CVE number if we have it
+
+### What We Learn
+
+Each vulnerability has a lot of information that explains the problem and tells us how to fix it.
+
+### Screenshot
+
+![Alt text](screenshots/vulnerability-details.png)
+
+---
+
+## 4. Look at the Recommended Fix
+
+### What We Are Doing
+
+We are going to understand how Nessus says we should fix the vulnerabilities it found.
+
+### What We Do
+
+We read the **Solution** section to see what Nessus recommends we do to fix the problem.
+
+### Screenshot
+
+![Alt text](screenshots/recommended-solution.png)
+
+---
+
+# Important Things We Learned
+
+- How bad vulnerabilities are
+
+- What CVE means
+
+- Information, about plugins
+
+- Looking at risk
+
+- Fixing problems
+
+---
+
+# conclusion
+
+In this part I learned:
+
+- How to understand the results of a Nessus scan.
+
+- How the level of severity helps us prioritize security problems.
+
+- How to look at the details of one vulnerability.
+
+- How Nessus tells us how to fix vulnerabilities.

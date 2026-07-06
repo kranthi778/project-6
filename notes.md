@@ -1,303 +1,171 @@
 # vulnerability-analysis-project
 
-# Part 1 – Introduction to Vulnerability Analysis
+# Part 1 – Understanding Vulnerability Analysis and Setting Up Nessus
 
 ## Objective
 
-I want to understand what Vulnerability Analysis is and how to do an assessment using Nmaps scripts to find vulnerabilities.
+I want to understand what Vulnerability Analysis is about. I need to learn how it is different from scanning networks and finding out what is on them. I also want to set up Nessus Essentials so I can use it to find vulnerabilities.
 
 ---
 
 # What is Vulnerability Analysis?
 
-Vulnerability Analysis is a process to find security weaknesses in systems and services before someone can exploit them.
+Vulnerability Analysis is a process. It helps us find security weaknesses in operating systems, applications and network services. We do this before someone with intentions can find and use these weaknesses against us.
 
-It is different from Network Scanning.
+Vulnerability Analysis is not the same as scanning a network. When we scan a network we are just trying to find out what computers and services are available.. With Vulnerability Analysis we are trying to figure out if those computers and services have any known security problems. We also want to know how bad these problems could be.
 
-Network Scanning finds hosts and services.
-
-Vulnerability Analysis checks if those services have known security weaknesses.
-
-The goal of Vulnerability Analysis is to:
+The main things we want to do with Vulnerability Analysis are:
 
 - Find vulnerabilities
 
-- Check security risks
+- Figure out how risk they pose
 
-- Decide what to fix first
+- Decide which ones to fix first
 
-- Make the security
-
----
-
-# Vulnerability Analysis Workflow
-
-1. Find the target
-
-2. See what services are running
-
-3. Detect what software versions are used
-
-4. Compare them to known vulnerabilities
-
-5. Write down the findings
+- Make our organizations security better
 
 ---
 
-## 1. Update the Nmap Script Database
+# Difference Between Scanning Finding Out More and Vulnerability Analysis
 
-### Scenario
+| Phase | Purpose  |
 
-I need to update the Nmap script database before I do a vulnerability assessment.
 
-### Command
+| Network Scanning | Find computers, open ports and services on the network |
+
+| Finding Out More | Get details about the services we found |
+
+| Vulnerability Analysis | Find known security weaknesses in those services |
+
+---
+
+# How to Do a Vulnerability Assessment
+
+To do a vulnerability assessment we need to follow some steps:
+
+1. Decide what we want to assess.
+
+2. Set up our vulnerability scanner.
+
+3. Scan the computers and services we're interested in.
+
+4. Look at the vulnerabilities we found.
+
+5. Figure out which ones are the important to fix.
+
+6. Recommend how to fix them.
+
+---
+
+# Our Lab Environment
+
+## The Computer We Will Use to Attack
+
+- We will use Kali Linux.
+
+## The Computers We Will Attack
+
+- 2
+
+- Windows 7
+
+## The Tool We Will Use to Find Vulnerabilities
+
+- Nessus Essentials
+
+---
+
+## Step 1: Check if the Nessus Service is Running
+
+### What We Are Doing
+
+We need to make sure the Nessus service is installed and running before we start.
+
+### What to Type
 
 ```bash
 
-sudo nmap --script-updatedb
+sudo systemctl status nessusd
 
 ```
 
-### Description
+### What This Does
 
-This command updates the Nmap script database so it knows about scripts.
+This command tells us if the Nessus service is running or not.
 
 ### Screenshot
 
-![Alt text](screenshots/nmap-script-updatedb.png)
+![Alt text](screenshots/nessus-service-status.png)
 
 ---
 
-## 2. Run the Vulnerability Script Category
+## Step 2: Start the Nessus Service
 
-### Scenario
+### What We Are Doing
 
-Now I do a vulnerability assessment, on the target.
+If the Nessus service is not running we need to start it.
 
-### Command
+### What to Type
 
 ```bash
 
-sudo nmap --script vuln <target-ip>
+sudo systemctl start nessusd
 
 ```
 
-### Description
+### What This Does
 
-This command runs all the Nmap scripts that check for vulnerabilities to see if the target has any.
-
-Replace the IP address with the target IP address.
+This command starts the Nessus service.
 
 ### Screenshot
 
-![Alt text](screenshots/nmap-vuln-scan.png)
+![Alt text](screenshots/start-nessus-service.png)
 
 ---
 
-## 3. Save the Vulnerability Report
+## Step 3: Open the Nessus Dashboard
 
-### Scenario
+### What We Are Doing
 
-I need to save the vulnerability assessment results.
+Now we need to open the Nessus web interface.
 
-### Command
+### Where to Go
 
-```bash
+```text
 
-sudo nmap --script vuln <target-ip> -oN vulnerability-scan.txt
+https://localhost:8834
 
 ```
 
-### Description
+### What This Does
 
-This command saves the scan results in a text file.
+We open the Nessus Essentials dashboard in our web browser and make sure the login page comes up correctly.
 
 ### Screenshot
 
-![Alt text](screenshots/vulnerability-report.png)
-
+![Alt text](screenshots/nessus-dashboard.png)
+nessus-service-status
 ---
 
-## 4. Review the Saved Report
+# Things I Learned
 
-### Scenario
+- What Vulnerability Analysis is
 
-Now I review the vulnerability report.
+- How to do a Vulnerability Assessment
 
-### Command
+- What Nessus Essentials is
 
-```bash
+- How to use the Nessus web interface
 
-less vulnerability-scan.txt
-
-```
-
-### Description
-
-This command opens the report so I can read it easily.
-
-### Screenshot
-
-![Alt text](screenshots/review-vulnerability-report.png)
+- The steps to follow for a vulnerability assessment
 
 ---
 
 # Key Concepts Learned
 
 - Vulnerability Analysis
+- Vulnerability Assessment
+- Nessus Essentials
+- Assessment Workflow
+- Nessus Web Interface
 
-- NSE Vulnerability Scripts
-
-- Vulnerability Identification
-
-- Security Assessment
-
-- Scan Reporting
-
----
-
-# Conclusion
-
-In this part, I learned:
-
-- The purpose of Vulnerability Analysis.
-- How Nmap NSE scripts detect known vulnerabilities.
-- How to document vulnerability findings.
-- How vulnerability reports support remediation planning.
-
-
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# Part 2 – Nmap NSE Vulnerability Scripts
-
-## Objective
-
-My goal is to learn how to use Nmap NSE vulnerability scripts to check for security weaknesses in network services like Nmap NSE vulnerability scripts.
-
----
-
-# What are NSE Vulnerability Scripts?
-
-Nmap NSE vulnerability scripts are part of the Nmap Scripting Engine or NSE for short. They help find common vulnerabilities, bad configurations and exposed services.
-
-Unlike network scans Nmap NSE vulnerability scripts actually check if a service has known security issues.
-
----
-
-## 1. Check for SMB Vulnerabilities
-
-### Scenario
-
-I want to check the SMB service for vulnerabilities like SMB vulnerabilities.
-
-### Command
-
-```bash
-
-sudo nmap --script smb-vuln* <target-ip>
-```
-
-### Description
-
-This command runs all Nmap NSE vulnerability scripts for SMB against the target to check for SMB vulnerabilities.
-
-### Screenshot
-
-![Alt text](screenshots/smb-vulnerability-scan.png)
-
----
-
-## 2. Check FTP Anonymous Access
-
-### Scenario
-
-I need to find out if anonymous FTP login is allowed like FTP access.
-
-### Command
-
-```bash
-
-sudo nmap --script ftp-anon <target-ip>
-```
-
-### Description
-
-This command checks if the FTP server allows authentication, which is a type of FTP anonymous access.
-
-### Screenshot
-
-![Alt text](screenshots/ftp-anonymous-check.png)
-
----
-
-## 3. Check HTTP Security Configuration
-
-### Scenario
-
-I have to review HTTP security headers and basic web server configuration like HTTP security configuration.
-
-### Command
-
-```bash
-
-sudo nmap --script http-security-headers <target-ip>
-```
-
-### Description
-
-This command retrieves HTTP security headers to find weak configurations, which are part of HTTP security configuration.
-
-### Screenshot
-
-![Alt text](screenshots/http-security-headers.png)
-
----
-
-## 4. Detect SSL/TLS Support
-
-### Scenario
-
-I need to identify supported SSL/TLS protocols and certificates like SSL/TLS support.
-
-### Command
-
-```bash
-
-sudo nmap --script ssl-cert <target-ip>
-```
-
-### Description
-
-This command retrieves SSL certificate information if an HTTPS service is available which helps with SSL/TLS support.
-
-### Screenshot
-
-![Alt text](screenshots/ssl-certificate.png)
-
----
-
-# Key Concepts Learned
-
-- I learned about NSE Vulnerability Scripts
-
-- I learned about SMB Vulnerability Checks
-
-- I learned about FTP Anonymous Access
-
-- I learned about HTTP Security Headers
-
-- I learned about SSL Certificate Inspection
-
----
-
-# conclusion
-
-In this part I learned how to use individual NSE scripts to check specific services, like Nmap NSE vulnerability scripts.
-
-I learned how to find FTP configurations and how HTTP security headers help with web security.
-
-I also learned how SSL certificate information helps with vulnerability analysis and how NSE vulnerability scripts work.
-
-I learned about Nmap NSE vulnerability scripts and how they help with security.

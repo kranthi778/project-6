@@ -169,3 +169,152 @@ nessus-service-status
 - Assessment Workflow
 - Nessus Web Interface
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Part 2 – Creating a Vulnerability Scan in Nessus
+
+## Objective
+
+The goal is to create and set up a Basic Network Scan in Nessus Essentials. This will help us get ready to check the vulnerability of the lab machines we are allowed to use.
+
+---
+
+# Scan Configuration
+
+We need to set up a vulnerability scan before Nessus can start finding security weaknesses.
+
+At this point we need to decide on a things:
+
+- What to name the scan
+
+- What the target IP address is
+
+- Where to save the scan
+
+- What scan template to use
+
+This information tells Nessus which system to check.
+
+---
+
+## 1. Create a New Scan
+
+### Scenario
+
+We want to create a vulnerability assessment.
+
+### Steps
+
+1. We click on **New Scan**
+
+2. Then we select **Basic Network Scan**
+
+### Description
+
+The **Basic Network Scan** template is a choice for general vulnerability assessments. It can help us find security weaknesses.
+
+### Screenshot
+
+![Alt text](screenshots/create-basic-network-scan.png)
+
+---
+
+## 2. Configure the Target
+
+### Scenario
+
+Now we configure the scan for  Metasploitable 2.
+
+### Configuration
+
+| Field | Value |
+
+
+| Name | Metasploitable 2 Scan |
+
+| Targets | 10.199.206.53 |
+
+| Folder | My Scans |
+
+If we are using Windows 7 we need to replace the target IP with the address of our Windows machine.
+
+### Screenshot
+
+![Alt text](screenshots/configure-target.png)
+
+---
+
+## 3. Review Scan Settings
+
+### Scenario
+
+We need to check the scan configuration before we save it.
+
+### Verify
+
+- The name of the scan
+
+- The target IP
+
+- The template
+
+- The folder
+
+### Description
+
+Reviewing the configuration helps us avoid scanning the wrong target or using the wrong template.
+
+### Screenshot
+
+![Alt text](screenshots/configure-target.png)
+
+---
+
+## 4. Save the Scan
+
+### Scenario
+
+Now we save the configured scan.
+
+### Action
+
+We click on:
+
+```text
+
+Save
+
+```
+
+### Description
+
+Saving the configuration creates a scan profile that we can use later.
+
+### Screenshot
+
+![Alt text](screenshots/save-scan-profile.png)
+
+---
+
+# Key Concepts Learned
+
+- Basic Network Scan
+
+- Scan Configuration
+
+- Target Definition
+
+- Scan Templates
+
+- Scan Profiles
+
+---
+
+# Conclusion
+
+In this part, I learned:
+
+- How to create a Basic Network Scan.
+- How to configure an authorized target.
+- How to review scan settings before execution.
+- How to save a reusable scan profile.

@@ -318,3 +318,132 @@ In this part, I learned:
 - How to configure an authorized target.
 - How to review scan settings before execution.
 - How to save a reusable scan profile.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Part 3 – Running a Vulnerability Scan
+
+## Objective
+
+I will launch a vulnerability scan against the lab machines using Nessus Essentials. I will monitor the scan progress until it is finished.
+
+---
+
+# Why Run the Scan?
+
+After I create a scan profile Nessus Essentials starts talking to the target system to find out about the target system. It looks for things like
+
+- what services are open on the target system
+
+- what software is installed on the target system
+
+- if the target system has any known vulnerabilities
+
+- if the target system has any weaknesses in its configuration
+
+- what security risks the target system has
+
+Nessus Essentials compares the information it collects from the target system with its database of vulnerabilities and it makes a detailed report.
+
+---
+
+# Lab Targets
+
+- Metasploitable 2
+
+- Windows 7
+
+---
+
+## 1. Launch the Scan
+
+### Scenario
+
+Now I will start the vulnerability assessment that I set up.
+
+### Steps
+
+1. I will open **My Scans**.
+
+2. I will find the scan profile that I saved.
+
+3. I will click the **Launch play** button.
+
+### Description
+
+Nessus Essentials starts checking the target system using the template and plugins that I chose.
+
+### Screenshot
+
+![ text](screenshots/launch-scan.png)
+
+---
+
+## 2. Monitor Scan Progress
+
+### Scenario
+
+I will watch the scan while it is running.
+
+### Description
+
+While the scan is running Nessus Essentials shows me
+
+- the status of the scan
+
+- how along the scan is
+
+- how long the scan has been running
+
+- how many plugins have been used
+
+I can see that the scan is working on the target system.
+
+### Screenshot
+
+![Alt text](screenshots/scan-progress.png)
+
+---
+
+## 3. Verify Scan Completion
+
+### Scenario
+
+I will make sure that the vulnerability assessment is finished.
+
+### Description
+
+When the scan is finished it will say **Completed**. I can look at the results.
+
+### Screenshot
+
+![ text](screenshots/completed-scan.png)
+
+---
+
+# Key Concepts Learned
+
+- how to run a vulnerability assessment
+
+- the steps that Nessus Essentials takes to do a scan
+
+- how plugins are used in a scan
+
+- how to watch the progress of a scan
+
+- how to confirm that a scan is finished
+
+---
+
+# conclusion
+
+In this part I learned
+
+- how to start a vulnerability assessment using Nessus Essentials
+
+- how to watch the progress of a scan
+
+- how to confirm that a scan is finished
+
+- how Nessus Essentials checks for vulnerabilities before making a report, about the target system.
